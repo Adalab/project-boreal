@@ -1,13 +1,19 @@
 "use strict";
+var inputProject = document.querySelector(".js-input-slug");
+var searchBtn = document.querySelector(".js-btn-search");
 
-function search () {
+function getIssuesData () {
   var request = new XMLHttpRequest();
-  var urlApi = "https://api.taiga.io/api/v1/issues";
+  var slugName = inputProject.value;
+  var urlApiProject = "https://api.taiga.io/api/v1/projects/by_slug?slug=";
+  urlApiProject = urlApiProject + slugName;
 
-  request.open('GET', urlApi, true);
+  request.open('GET', urlApiProject, true);
 
   request.onload = function() {
         if (request.status >= 200 && request.status < 400) {
+            var data = JSON.parse(request.responseText);
+            var projectId = data.id;
 
         } else {
 
@@ -19,3 +25,5 @@ function search () {
   };
   request.send();
 }
+
+searchBtn.addEventListener('click', getIssuesData);
