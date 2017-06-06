@@ -7,6 +7,11 @@ function search () {
   request.open('GET', urlApi, true);
 
   request.onload = function() {
+        if (request.status >= 200 && request.status < 400) {
+
+        } else {
+
+        }
   };
 
   request.onerror = function() {
