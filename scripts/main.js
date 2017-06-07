@@ -53,7 +53,7 @@ function getIssuesData() {
               labels: [ "High Priority", "Normal Priority", "Low Priority"],
               datasets: [{
                 label: '# of Priority',
-                data: [countHighPriorities, countNormalPriorities, countNormalPriorities],
+                data: [countHighPriorities, countNormalPriorities, countLowPriorities],
                 backgroundColor: [
 
                   'rgba(153, 102, 255, 0.2)',
