@@ -70,21 +70,43 @@ function getIssuesData() {
           });
 
         //Get data of opended, closed and total issues.
-          var openedIssues = 0;
+          var openIssues = 0;
           var closedIssues = 0;
           var totalIssues = 0;
-          openedIssues = dataIssues.opened_issues;
+          openIssues = dataIssues.open_issues;
           closedIssues = dataIssues.closed_issues;
           totalIssues = dataIssues.total_issues;
-          console.log("Opened issues: " + openedIssues, "Closed issues: " + closedIssues, "Total issues: " + totalIssues);
+          console.log("Open issues: " + openIssues, "Closed issues: " + closedIssues, "Total issues: " + totalIssues);
+
+        // Get data of open issues per status
+        var status;
+        var readyForTestIssues = 0;
+        var newIssues = 0;
+        var inProgressIssues = 0;
+        var needsInfoIssues = 0;
+        for (var key in dataIssues.issues_per_status) {
+          status = dataIssues.issues_per_status[key];
+          if (status.name === "Ready for test") {
+            readyForTestIssues = status.count;
+          } else if (status.name === "New") {
+            newIssues = status.count;
+          } else if (status.name === "In progress") {
+            inProgressIssues = status.count;
+          } else if (status.name === "Needs Info") {
+            needsInfoIssues = status.count;
+          }
+        }
+          console.log("listos para test: " + readyForTestIssues, "New :" + newIssues, "in progress Issues: " + inProgressIssues, "needs info issues. " + needsInfoIssues);
+
         //(pintar gráfico)
+
 
         //Get data of not assigned issues.
           var notAssignedIssues = 0;
           notAssignedIssues = dataIssues.issues_per_assigned_to["0"].count;
           console.log("Issues not assigned :" + notAssignedIssues);
 
-        //Get data of top 3 assigned...
+
 
 
         } else {
