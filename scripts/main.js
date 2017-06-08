@@ -100,6 +100,31 @@ function getIssuesData() {
 
         //(pintar gráfico)
 
+        //Get data issues per severity
+        var severity;
+        var wishListSeverityIssues = 0;
+        var minorSeverityIssues = 0;
+        var normalSeverityIssues = 0;
+        var importantSeverityIssues = 0;
+        var criticalSeverityIssues = 0;
+
+        for (var key in dataIssues.issues_per_severity) {
+          severity = dataIssues.issues_per_severity[key];
+          if (severity.name === "Wishlist") {
+            wishListSeverityIssues = severity.count;
+          } else if (severity.name === "Minor") {
+            minorSeverityIssues = severity.count;
+          } else if (severity.name === "Normal") {
+            normalSeverityIssues = severity.count;
+          } else if (severity.name === "Important") {
+            importantSeverityIssues = severity.count;
+          }  else if (severity.name === "Critical") {
+            criticalSeverityIssues = severity.count;
+          }
+        }
+        console.log("Wishlist: " + wishListSeverityIssues,"Minor: " + minorSeverityIssues, "Normal: " + normalSeverityIssues, "Important: " + importantSeverityIssues, "critical issues :" + criticalSeverityIssues  );
+
+        //(Pintar gráfico)
 
         //Get data of not assigned issues.
           var notAssignedIssues = 0;
