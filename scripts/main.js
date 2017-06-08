@@ -73,7 +73,7 @@ function getIssuesData() {
           var openIssues = 0;
           var closedIssues = 0;
           var totalIssues = 0;
-          openIssues = dataIssues.open_issues;
+          openIssues = dataIssues.opened_issues;
           closedIssues = dataIssues.closed_issues;
           totalIssues = dataIssues.total_issues;
           console.log("Open issues: " + openIssues, "Closed issues: " + closedIssues, "Total issues: " + totalIssues);
