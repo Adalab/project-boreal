@@ -95,6 +95,37 @@ function getSeverityData(dataIssues){
 
 //(Pintar gráfico)
 
+function getOpenClosedData(dataIssues) {
+    var closedIssues = 0;
+    var openIssues = {
+      readyForTest: 0,
+      new: 0,
+      inProgress: 0,
+      needsInfo: 0
+    };
+    closedIssues = dataIssues.closed_issues;
+    for (var key in dataIssues.issues_per_status) {
+      var statusData = dataIssues.issues_per_status[key];
+      if (statusData.name === "Ready for test") {
+        openIssues.readyForTest = statusData.count;
+      } else if (statusData.name === "New") {
+        openIssues.new = statusData.count;
+      } else if (statusData.name === "In progress") {
+        openIssues.inProgress = statusData.count;
+      } else if (statusData.name === "Needs Info") {
+        openIssues.needsInfo = statusData.count;
+      }
+    }
+    console.log(
+      "Closed issues: " + closedIssues,
+      "listos para test: " + openIssues.readyForTest,
+      "New :" + openIssues.new,
+      "in progress Issues: " + openIssues.inProgress,
+      "needs info issues. " + openIssues.needsInfo
+    );
+    return [openIssues, closedIssues];
+}
+
 // Main function
 function getIssuesData() {
   //Access API to get ID of the project by slug
@@ -123,38 +154,9 @@ function getIssuesData() {
           printPrioritiesChart(prioritiesCount);
           var severityCount= getSeverityData(dataIssues);
           //debe ir printSeverityChart(severityCount);
+          var openClosedCount = getOpenClosedData(dataIssues);
+          //debe it printOpenClosedChart(openClosedCount);
 
-        //Get data of opended, closed and total issues.
-          var openIssues = 0;
-          var closedIssues = 0;
-          var totalIssues = 0;
-          openIssues = dataIssues.opened_issues;
-          closedIssues = dataIssues.closed_issues;
-          totalIssues = dataIssues.total_issues;
-          console.log("Open issues: " + openIssues, "Closed issues: " + closedIssues, "Total issues: " + totalIssues);
-
-
-        // Get data of open issues per status
-        var status;
-        var readyForTestIssues = 0;
-        var newIssues = 0;
-        var inProgressIssues = 0;
-        var needsInfoIssues = 0;
-        for (var key in dataIssues.issues_per_status) {
-          status = dataIssues.issues_per_status[key];
-          if (status.name === "Ready for test") {
-            readyForTestIssues = status.count;
-          } else if (status.name === "New") {
-            newIssues = status.count;
-          } else if (status.name === "In progress") {
-            inProgressIssues = status.count;
-          } else if (status.name === "Needs Info") {
-            needsInfoIssues = status.count;
-          }
-        }
-          console.log("listos para test: " + readyForTestIssues, "New :" + newIssues, "in progress Issues: " + inProgressIssues, "needs info issues. " + needsInfoIssues);
-
-        //(pintar gráfico)
 
         //Get data of not assigned issues.
           var notAssignedIssues = 0;
