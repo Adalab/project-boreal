@@ -125,6 +125,14 @@ function getOpenClosedData(dataIssues) {
     );
     return [openIssues, closedIssues];
 }
+//Pintar gráfica open closed
+
+function getNotAssignedData(dataIssues) {
+  var notAssignedIssues = 0;
+  notAssignedIssues = dataIssues.issues_per_assigned_to["0"].count;
+  console.log("Issues not assigned :" + notAssignedIssues);
+}
+//Pintar con innerHTML
 
 // Main function
 function getIssuesData() {
@@ -156,16 +164,8 @@ function getIssuesData() {
           //debe ir printSeverityChart(severityCount);
           var openClosedCount = getOpenClosedData(dataIssues);
           //debe it printOpenClosedChart(openClosedCount);
-
-
-        //Get data of not assigned issues.
-          var notAssignedIssues = 0;
-          notAssignedIssues = dataIssues.issues_per_assigned_to["0"].count;
-          console.log("Issues not assigned :" + notAssignedIssues);
-
-
-
-
+          var notAssignedCount = getNotAssignedData(dataIssues);
+          //debe pintarse con innerHTML;
 
         } else {
 
