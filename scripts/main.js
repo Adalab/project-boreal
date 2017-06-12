@@ -134,6 +134,10 @@ function getNotAssignedData(dataIssues) {
 }
 //Pintar con innerHTML
 
+function getTimelineData(dataTimeline) {
+
+}
+
 // Main function
 function getIssuesData() {
   //Access API to get ID of the project by slug
@@ -151,7 +155,7 @@ function getIssuesData() {
       var dataProject = JSON.parse(requestProjectId.responseText);
       var projectId = dataProject.id;
       var urlApiIssues = "https://api.taiga.io/api/v1/projects/" + projectId + "/issues_stats";
-      console.log(urlApiIssues);
+      console.log("URL API issues: " + urlApiIssues);
       var requestProjectIssues = new XMLHttpRequest();
       requestProjectIssues.open('GET', urlApiIssues, true);
       requestProjectIssues.onload = function() {
@@ -174,6 +178,22 @@ function getIssuesData() {
       requestProjectIssues.onerror = function() {
       };
       requestProjectIssues.send();
+
+      var urlApiTimeline = "https://api.taiga.io/api/v1/timeline/project/" + projectId;
+      var requestProjectTimeline = new XMLHttpRequest();
+      requestProjectTimeline.open('GET', urlApiTimeline, true);
+      requestProjectTimeline.onload = function() {
+        if (requestProjectTimeline.status >= 200 && requestProjectTimeline.status < 400) {
+          var dataTimeline = JSON.parse(requestProjectTimeline.responseText);
+          console.log("URL timeline: " + urlApiTimeline);
+        }
+        else {
+
+        }
+      };
+      requestProjectTimeline.onerror = function() {
+      };
+      requestProjectTimeline.send();
     } else {
 
     }
