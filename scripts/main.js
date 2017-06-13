@@ -63,14 +63,14 @@ function printPrioritiesChart(prioritiesCount) {
 
 function getSeverityData(dataIssues){
   var severityCount = {
-   wishlist:0,
-   minor:0,
-   normal:0,
-   important:0,
-   critical:0
- };
+    wishlist:0,
+    minor:0,
+    normal:0,
+    important:0,
+    critical:0
+  };
   for (var key in dataIssues.issues_per_severity) {
-     var severityData = dataIssues.issues_per_severity[key];
+    var severityData = dataIssues.issues_per_severity[key];
     if (severityData.name === "Wishlist") {
       severityCount.wishlist = severityData.count;
     } else if (severityData.name === "Minor") {
@@ -96,34 +96,34 @@ function getSeverityData(dataIssues){
 //(Pintar gráfico)
 
 function getOpenClosedData(dataIssues) {
-    var closedIssues = 0;
-    var openIssues = {
-      readyForTest: 0,
-      new: 0,
-      inProgress: 0,
-      needsInfo: 0
-    };
-    closedIssues = dataIssues.closed_issues;
-    for (var key in dataIssues.issues_per_status) {
-      var statusData = dataIssues.issues_per_status[key];
-      if (statusData.name === "Ready for test") {
-        openIssues.readyForTest = statusData.count;
-      } else if (statusData.name === "New") {
-        openIssues.new = statusData.count;
-      } else if (statusData.name === "In progress") {
-        openIssues.inProgress = statusData.count;
-      } else if (statusData.name === "Needs Info") {
-        openIssues.needsInfo = statusData.count;
-      }
+  var closedIssues = 0;
+  var openIssues = {
+    readyForTest: 0,
+    new: 0,
+    inProgress: 0,
+    needsInfo: 0
+  };
+  closedIssues = dataIssues.closed_issues;
+  for (var key in dataIssues.issues_per_status) {
+    var statusData = dataIssues.issues_per_status[key];
+    if (statusData.name === "Ready for test") {
+      openIssues.readyForTest = statusData.count;
+    } else if (statusData.name === "New") {
+      openIssues.new = statusData.count;
+    } else if (statusData.name === "In progress") {
+      openIssues.inProgress = statusData.count;
+    } else if (statusData.name === "Needs Info") {
+      openIssues.needsInfo = statusData.count;
     }
-    console.log(
-      "Closed issues: " + closedIssues,
-      "listos para test: " + openIssues.readyForTest,
-      "New :" + openIssues.new,
-      "in progress Issues: " + openIssues.inProgress,
-      "needs info issues. " + openIssues.needsInfo
-    );
-    return [openIssues, closedIssues];
+  }
+  console.log(
+    "Closed issues: " + closedIssues,
+    "listos para test: " + openIssues.readyForTest,
+    "New :" + openIssues.new,
+    "in progress Issues: " + openIssues.inProgress,
+    "needs info issues. " + openIssues.needsInfo
+  );
+  return [openIssues, closedIssues];
 }
 //Pintar gráfica open closed
 
@@ -135,21 +135,41 @@ function getNotAssignedData(dataIssues) {
 //Pintar con innerHTML
 
 function getTimelineData(dataTimeline) {
-  var timeLineItems = [];
-  for (var i = 0; i <= 4; i++) {
-    timeLineItems[i] = {
-      type: dataTimeline[i].event_type,
-      subject: dataTimeline[i].data.issue.subject,
-      photo: dataTimeline[i].data.user.photo,
-      userName: dataTimeline[i].data.user.name,
-      created: dataTimeline[i].created
-    };
-    if (timeLineItems[i].photo === null) {
-      timeLineItems[i].photo = "hazte una foto ya";
+  var lastTimelineItems = [];
+  for (var i = 0; lastTimelineItems.length < 5; i++) {
+    if(dataTimeline[i].event_type === "issues.issue.change" || dataTimeline[i].event_type === "issues.issue.create"){
+      var timeLineItems = {
+        type: dataTimeline[i].event_type,
+        subject: dataTimeline[i].data.issue.subject,
+        photo: dataTimeline[i].data.user.photo,
+        userName: dataTimeline[i].data.user.name,
+        created: dataTimeline[i].created
+      };
+      if (timeLineItems.photo === null) {
+        timeLineItems.photo = "hazte una foto ya";
+      }
+      lastTimelineItems.push(timeLineItems);
     }
   }
-  console.log(timeLineItems);
+
+  console.log(lastTimelineItems);
 }
+
+//Ramoon te necescitamos
+function getUserWithMostIssues(dataIssues) {
+  var topUser = {
+    name:"" ,
+    count: 0
+  };
+  for (var key in dataIssues.issues_per_assigned_to){
+    if (dataIssues.issues_per_assigned_to[key].count > topUser.count && dataIssues.issues_per_assigned_to[key].name !== "No asignado") {
+      topUser.count = dataIssues.issues_per_assigned_to[key].count;
+      topUser.name = dataIssues.issues_per_assigned_to[key].name;
+    }
+  }
+  console.log("El nuevo Ramón es: " + topUser.name + " con " + topUser.count + " issues");
+}
+
 
 // Main function
 function getIssuesData() {
@@ -183,6 +203,7 @@ function getIssuesData() {
           //debe it printOpenClosedChart(openClosedCount);
           var notAssignedCount = getNotAssignedData(dataIssues);
           //debe pintarse con innerHTML;
+          var userWithMostIssues = getUserWithMostIssues(dataIssues);
 
         } else {
 
