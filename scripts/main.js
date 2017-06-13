@@ -27,7 +27,7 @@ function getPriorityData(dataIssues) {
   console.log(
     "Low priorities: " + prioritiesCount.low,
     " Normal priorities: " + prioritiesCount.normal,
-    " High priorities: " +prioritiesCount.high
+    " High priorities: " + prioritiesCount.high
   );
 
   return prioritiesCount;
@@ -39,7 +39,7 @@ function printPrioritiesChart(prioritiesCount) {
 
   Chart.defaults.global.maintainAspectRatio = false;
   var priorityChart = new Chart(ctxPriority, {
-    type: 'polarArea',
+    type: 'pie',
     data:{
       labels: [ "High Priority", "Normal Priority", "Low Priority"],
       datasets: [{
@@ -47,16 +47,15 @@ function printPrioritiesChart(prioritiesCount) {
         data: [prioritiesCount.high, prioritiesCount.normal, prioritiesCount.low],
         backgroundColor: [
 
-          'rgba(153, 102, 255, 0.2)',
-          'rgba(255, 159, 64, 0.2)'
+          '#BD513F',
+          '#3C715A',
+          '#52BD8F'
         ],
-        borderColor: [
-          'rgba(75, 192, 192, 1)',
-          'rgba(153, 102, 255, 1)',
-          'rgba(255, 159, 64, 1)'
+        borderColor:[
+          "white"
         ],
-        borderWidth: 1
-      }]
+            borderWidth: 3
+        }]
     },
   });
 }
