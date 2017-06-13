@@ -135,7 +135,20 @@ function getNotAssignedData(dataIssues) {
 //Pintar con innerHTML
 
 function getTimelineData(dataTimeline) {
-
+  var timeLineItems = [];
+  for (var i = 0; i <= 4; i++) {
+    timeLineItems[i] = {
+      type: dataTimeline[i].event_type,
+      subject: dataTimeline[i].data.issue.subject,
+      photo: dataTimeline[i].data.user.photo,
+      userName: dataTimeline[i].data.user.name,
+      created: dataTimeline[i].created
+    };
+    if (timeLineItems[i].photo === null) {
+      timeLineItems[i].photo = "hazte una foto ya";
+    }
+  }
+  console.log(timeLineItems);
 }
 
 // Main function
@@ -185,6 +198,8 @@ function getIssuesData() {
       requestProjectTimeline.onload = function() {
         if (requestProjectTimeline.status >= 200 && requestProjectTimeline.status < 400) {
           var dataTimeline = JSON.parse(requestProjectTimeline.responseText);
+
+          var issuesTimeLine = getTimelineData(dataTimeline);
           console.log("URL timeline: " + urlApiTimeline);
         }
         else {
