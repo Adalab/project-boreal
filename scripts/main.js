@@ -135,7 +135,7 @@ function getNotAssignedData(dataIssues) {
 
 function getTimelineData(dataTimeline) {
   var lastTimelineItems = [];
-  for (var i = 0; lastTimelineItems.length < 5; i++) {
+  for (var i = 0; lastTimelineItems.length < 5 && i < dataTimeline.length; i++) {
     if(dataTimeline[i].event_type === "issues.issue.change" || dataTimeline[i].event_type === "issues.issue.create"){
       var timeLineItems = {
         type: dataTimeline[i].event_type,
