@@ -93,6 +93,41 @@ function getSeverityData(dataIssues){
 }
 
 //(Pintar gráfico)
+function printSeveritiesChart(severityCount) {
+
+  var ctxSeverity = document.getElementById("js-severityChart");
+
+  Chart.defaults.global.maintainAspectRatio = false;
+  var severityChart = new Chart(ctxSeverity, {
+    type: 'pie',
+    data:{
+      labels: [ "Critical", "Important", "Normal", "Minor", "Wishlist"],
+      datasets: [{
+        label: '# of Severity',
+        data: [
+          severityCount.critical,
+          severityCount.important,
+          severityCount.normal,
+          severityCount.minor,
+          severityCount.wishlist
+        ],
+        backgroundColor: [
+
+          '#BD513F',
+          '#3C715A',
+          '#52BD8F',
+          '#fabada',
+          'aliceblue'
+        ],
+        borderColor:[
+          "white"
+        ],
+        borderWidth: 3
+      }]
+    },
+  });
+}
+
 
 function getOpenClosedData(dataIssues) {
   var closedIssues = 0;
@@ -197,7 +232,7 @@ function getIssuesData() {
           var prioritiesCount = getPriorityData(dataIssues);
           printPrioritiesChart(prioritiesCount);
           var severityCount= getSeverityData(dataIssues);
-          //debe ir printSeverityChart(severityCount);
+          printSeveritiesChart(severityCount);
           var openClosedCount = getOpenClosedData(dataIssues);
           //debe it printOpenClosedChart(openClosedCount);
           var notAssignedCount = getNotAssignedData(dataIssues);
