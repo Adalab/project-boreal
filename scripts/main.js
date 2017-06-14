@@ -161,6 +161,66 @@ function getOpenClosedData(dataIssues) {
 }
 //Pintar gráfica open closed
 
+function printOpenClosedChart(openClosedCount) {
+  var readyForTest = openClosedCount[0].readyForTest;
+  var newIssue = openClosedCount[0].new;
+  var inProgress = openClosedCount[0].inProgress;
+  var needsInfo = openClosedCount[0].needsInfo;
+  var closedIssues = openClosedCount[1];
+
+  console.log("closedIssues: " + closedIssues + " readyForTest: " + readyForTest);
+
+
+  //var dataPack1 = [openClosedCount.openIssues.readyForTest, openClosedCount.closedIssues];
+  var dataPack1 = [readyForTest, closedIssues];
+  var dataPack2 = [newIssue];
+  var dataPack3 = [inProgress];
+  var dataPack4 = [needsInfo];
+  var openClosedLabels = ["abiertos", "cerrados"];
+
+  // Chart.defaults.global.elements.rectangle.backgroundColor = '#FF0000';
+
+  var ctxOpenClosed = document.getElementById('js-openClosedChart');
+  var openClosedChart = new Chart(ctxOpenClosed, {
+    type: 'bar',
+    data: {
+      labels: openClosedLabels,
+      datasets:[{
+        label: 'Ready for test',
+        data: dataPack1,
+        backgroundColor: 'blue'
+      },
+      {
+        label: 'New',
+        data: dataPack2,
+        backgroundColor: 'green'
+      },
+      {
+        label: 'In progress',
+        data: dataPack3,
+        backgroundColor: 'tomato'
+      },
+      {
+        label: 'Needs info',
+        data: dataPack4,
+        backgroundColor: 'yellow'
+      }
+  ]
+    },
+    options: {
+      scales: {
+        xAxes: [{
+          stacked: true
+        }],
+        yAxes: [{
+          stacked: true
+        }]
+      }
+    }
+  });
+}
+
+
 function getNotAssignedData(dataIssues) {
   var notAssignedIssues = 0;
   notAssignedIssues = dataIssues.issues_per_assigned_to["0"].count;
@@ -234,7 +294,7 @@ function getIssuesData() {
           var severityCount= getSeverityData(dataIssues);
           printSeveritiesChart(severityCount);
           var openClosedCount = getOpenClosedData(dataIssues);
-          //debe it printOpenClosedChart(openClosedCount);
+          printOpenClosedChart(openClosedCount);
           var notAssignedCount = getNotAssignedData(dataIssues);
           //debe pintarse con innerHTML;
           var userWithMostIssues = getUserWithMostIssues(dataIssues);
