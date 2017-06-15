@@ -243,6 +243,11 @@ function getTimelineData(dataTimeline) {
       if (timeLineItems.photo === null) {
         timeLineItems.photo = "img/user.png";
       }
+      if (timeLineItems.type === "issues.issue.change") {
+        timeLineItems.type = "cambiado";
+      }else {
+        timeLineItems.type = "creado";
+      }
       lastTimelineItems.push(timeLineItems);
     }
   }
