@@ -281,7 +281,7 @@ function getUserWithMostIssues(dataIssues) {
 
 function printUserAndUnassigned(userWithMostIssues, notAssignedCount) {
   var topUserUnassigned = document.querySelector('.topUserUnassigned-container');
-  topUserUnassigned.innerHTML= "<div class='top-user'><div class='top-user-photo'><img src='img/planta-ramon.png'></div><div class='top-user-text'>"+ userWithMostIssues.name +" tiene "+ userWithMostIssues.count + " issues asignados, que alguien le dé un abrazo :( </div></div> <div class='unassigned'><div class='unassigned-text'>" + notAssignedCount + " issues no asignados</div><div class='unassigned-photo'><img src='img/box.png'></div></div>";
+  topUserUnassigned.innerHTML= "<div class='top-user'><div class='top-user-photo'><img src='img/planta-ramon.png'></div><div class='top-user-text'>"+ userWithMostIssues.name +" tiene "+ userWithMostIssues.count + " issues asignados, que alguien le dé un abrazo :( </div></div> <div class='unassigned'><div class='unassigned-text'>Apadrina un issue, hay " + notAssignedCount + " issues no asignados</div><div class='unassigned-photo'><img src='img/box.png'></div></div>";
 }
 
 
