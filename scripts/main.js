@@ -229,6 +229,7 @@ function getNotAssignedData(dataIssues) {
 //Pintar con innerHTML
 
 function getTimelineData(dataTimeline) {
+  console.log(dataTimeline);
   var lastTimelineItems = [];
   for (var i = 0; lastTimelineItems.length < 5 && i < dataTimeline.length; i++) {
     if(dataTimeline[i].event_type === "issues.issue.change" || dataTimeline[i].event_type === "issues.issue.create"){
@@ -245,7 +246,6 @@ function getTimelineData(dataTimeline) {
       lastTimelineItems.push(timeLineItems);
     }
   }
-  console.log(lastTimelineItems);
   return lastTimelineItems;
 }
 
@@ -253,7 +253,7 @@ function printTimeline(lastTimelineItems) {
   var timelineContainer = document.querySelector('.timeline');
   for (var i = 0; i < lastTimelineItems.length; i++) {
     timelineContainer.innerHTML +=
-    "<div class='timeline-item'> <div class='timeline-user-photo'><img src='" + lastTimelineItems[i].photo + "'></div></div>";
+    "<div class='timeline-item'> <div class='timeline-user-photo'><img src='" + lastTimelineItems[i].photo + "'></div><div class='timeline-text'>"+ lastTimelineItems[i].userName + " ha " + lastTimelineItems[i].type + " el issue " + lastTimelineItems[i].subject + " </div></div>";
   }
 }
 
@@ -325,6 +325,7 @@ function getIssuesData() {
 
           var issuesTimeLine = getTimelineData(dataTimeline);
           printTimeline(issuesTimeLine);
+          console.log(issuesTimeLine);
           console.log("URL timeline: " + urlApiTimeline);
         }
         else {
