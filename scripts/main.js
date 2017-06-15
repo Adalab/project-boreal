@@ -225,8 +225,8 @@ function getNotAssignedData(dataIssues) {
   var notAssignedIssues = 0;
   notAssignedIssues = dataIssues.issues_per_assigned_to["0"].count;
   console.log("Issues not assigned :" + notAssignedIssues);
+  return notAssignedIssues;
 }
-//Pintar con innerHTML
 
 function getTimelineData(dataTimeline) {
   console.log(dataTimeline);
@@ -279,10 +279,11 @@ function getUserWithMostIssues(dataIssues) {
   return topUser;
 }
 
-function printUserWithMostIssues(userWithMostIssues) {
+function printUserAndUnassigned(userWithMostIssues, notAssignedCount) {
   var topUserUnassigned = document.querySelector('.topUserUnassigned-container');
-  topUserUnassigned.innerHTML= " <div class='top-user'><div class='top-user-photo'><img src='img/planta-ramon.png'></div><div class='top-user-text'>"+  userWithMostIssues.name +" tiene "+ userWithMostIssues.count + " issues asignados, que alguien le dé un abrazo :( </div></div> "
+  topUserUnassigned.innerHTML= "<div class='top-user'><div class='top-user-photo'><img src='img/planta-ramon.png'></div><div class='top-user-text'>"+ userWithMostIssues.name +" tiene "+ userWithMostIssues.count + " issues asignados, que alguien le dé un abrazo :( </div></div> <div class='unassigned'><div class='unassigned-text'>" + notAssignedCount + " issues no asignados</div><div class='unassigned-photo'><img src='img/box.png'></div></div>";
 }
+
 
 
 // Main function
@@ -316,9 +317,9 @@ function getIssuesData() {
           var openClosedCount = getOpenClosedData(dataIssues);
           printOpenClosedChart(openClosedCount);
           var notAssignedCount = getNotAssignedData(dataIssues);
-          //debe pintarse con innerHTML;
+          // printNotAssignedData(notAssignedCount);
           var userWithMostIssues = getUserWithMostIssues(dataIssues);
-          printUserWithMostIssues(userWithMostIssues);
+          printUserAndUnassigned(userWithMostIssues, notAssignedCount);
           //innerHTML
 
         } else {
