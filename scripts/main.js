@@ -240,13 +240,21 @@ function getTimelineData(dataTimeline) {
         created: dataTimeline[i].created
       };
       if (timeLineItems.photo === null) {
-        timeLineItems.photo = "hazte una foto ya";
+        timeLineItems.photo = "img/user.png";
       }
       lastTimelineItems.push(timeLineItems);
     }
   }
-
   console.log(lastTimelineItems);
+  return lastTimelineItems;
+}
+
+function printTimeline(lastTimelineItems) {
+  var timelineContainer = document.querySelector('.timeline');
+  for (var i = 0; i < lastTimelineItems.length; i++) {
+    timelineContainer.innerHTML +=
+    "<div class='timeline-item'> <div class='timeline-user-photo'><img src='" + lastTimelineItems[i].photo + "'></div></div>";
+  }
 }
 
 //Ramoon te necescitamos
@@ -298,6 +306,7 @@ function getIssuesData() {
           var notAssignedCount = getNotAssignedData(dataIssues);
           //debe pintarse con innerHTML;
           var userWithMostIssues = getUserWithMostIssues(dataIssues);
+          //innerHTML
 
         } else {
 
@@ -315,6 +324,7 @@ function getIssuesData() {
           var dataTimeline = JSON.parse(requestProjectTimeline.responseText);
 
           var issuesTimeLine = getTimelineData(dataTimeline);
+          printTimeline(issuesTimeLine);
           console.log("URL timeline: " + urlApiTimeline);
         }
         else {
