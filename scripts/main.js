@@ -276,6 +276,12 @@ function getUserWithMostIssues(dataIssues) {
     }
   }
   console.log("El nuevo Ramón es: " + topUser.name + " con " + topUser.count + " issues");
+  return topUser;
+}
+
+function printUserWithMostIssues(userWithMostIssues) {
+  var topUserUnassigned = document.querySelector('.topUserUnassigned-container');
+  topUserUnassigned.innerHTML= " <div class='top-user'><div class='top-user-photo'><img src='img/planta-ramon.png'></div><div class='top-user-text'>"+  userWithMostIssues.name +" tiene "+ userWithMostIssues.count + " issues asignados, que alguien le dé un abrazo :( </div></div> "
 }
 
 
@@ -312,6 +318,7 @@ function getIssuesData() {
           var notAssignedCount = getNotAssignedData(dataIssues);
           //debe pintarse con innerHTML;
           var userWithMostIssues = getUserWithMostIssues(dataIssues);
+          printUserWithMostIssues(userWithMostIssues);
           //innerHTML
 
         } else {
