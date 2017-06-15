@@ -257,8 +257,9 @@ function getTimelineData(dataTimeline) {
 function printTimeline(lastTimelineItems) {
   var timelineContainer = document.querySelector('.timeline');
   for (var i = 0; i < lastTimelineItems.length; i++) {
+    var time=new Date(lastTimelineItems[i].created).toLocaleString();
     timelineContainer.innerHTML +=
-    "<div class='timeline-item'> <div class='timeline-user-photo'><img src='" + lastTimelineItems[i].photo + "'></div><div class='timeline-text'>"+ lastTimelineItems[i].userName + " ha " + lastTimelineItems[i].type + " el issue " + lastTimelineItems[i].subject + " </div></div>";
+    "<div class='timeline-item'> <div class='timeline-user-photo'><img src='" + lastTimelineItems[i].photo + "'></div><div class='timeline-text'>"+ lastTimelineItems[i].userName + " ha " + lastTimelineItems[i].type + " el issue " + lastTimelineItems[i].subject + " </div><div class='timeline-date'>" + time + " </div></div>";
   }
 }
 
