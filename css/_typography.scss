@@ -1,0 +1,12 @@
+body {
+  font-family: $fontFamily;
+}
+h1, h2, p {
+  font-weight: $fontLightWeight;
+  color: white;
+}
+
+h1 {
+  font-size: 4em;
+  line-height: 0.3em;
+}

@@ -6,6 +6,17 @@ body {
   padding: 0;
   margin: 0; }
 
+body {
+  font-family: "Roboto", sans-serif; }
+
+h1, h2, p {
+  font-weight: 100;
+  color: white; }
+
+h1 {
+  font-size: 4em;
+  line-height: 0.3em; }
+
 .login-container {
   width: 100vw;
   height: 100vh;
@@ -45,5 +56,8 @@ body {
 
 .hidden {
   display: none; }
+
+.center {
+  text-align: center; }
 
 /*# sourceMappingURL=index.css.map */
