@@ -1,3 +1,19 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; }
 
+body {
+  padding: 0;
+  margin: 0; }
+
+.login-container {
+  width: 100vw;
+  height: 100vh;
+  background-image: url(../img/login-background.jpg);
+  background-size: cover;
+  background-position: center; }
+
+.hidden {
+  display: none; }
 
 /*# sourceMappingURL=index.css.map */

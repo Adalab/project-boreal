@@ -7,21 +7,32 @@
     <link rel="stylesheet" href="css/index.css">
   </head>
   <body>
-    <input class="js-input-slug" type="text" name="" value="">
-    <button class="js-btn-search" type="button" name="button">Search</button>
-    <div style="width:400px;height:400px;">
-      <canvas id="js-priorityChart" width="400" height="400" style="width:400px;height:400px"></canvas>
+
+    <div class="login-container">
+      <input class="js-input-slug" type="text" name="" value="" placeholder="Ex. john-project">
+      <button class="js-btn-search" type="button" name="button">Search</button>
     </div>
-    <div style="width:400px;height:400px;">
-      <canvas id="js-severityChart" width="400" height="400" style="width:400px;height:400px"></canvas>
-    </div>
-    <div style="width:400px;height:400px;">
-      <canvas id="js-openClosedChart" width="400" height="400" style="width:400px;height:400px"></canvas>
-    </div>
-    <div class="timeline">
-    </div>
-    <div class="topUserUnassigned-container">
-    </div>
+
+    <main class="hidden">
+      <div style="width:400px;height:400px;">
+        <canvas id="js-priorityChart" width="400" height="400" style="width:400px;height:400px"></canvas>
+      </div>
+
+      <div style="width:400px;height:400px;">
+        <canvas id="js-severityChart" width="400" height="400" style="width:400px;height:400px"></canvas>
+      </div>
+
+      <div style="width:400px;height:400px;">
+        <canvas id="js-openClosedChart" width="400" height="400" style="width:400px;height:400px"></canvas>
+      </div>
+
+      <div class="timeline">
+      </div>
+
+      <div class="topUserUnassigned-container">
+      </div>
+
+    </main>
 
     <script src="scripts/main.js" charset="utf-8"></script>
     <script src="scripts/chart.js" charset="utf-8"></script>
