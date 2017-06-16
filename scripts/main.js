@@ -10,6 +10,12 @@ function showCharts() {
   chartsScreen.classList.toggle('hidden');
 }
 
+function onKeyPress(event) {
+  if (event.charCode === 13) {
+    getIssuesData()
+  }
+}
+
 var inputProject = document.querySelector(".js-input-slug");
 var searchBtn = document.querySelector(".js-btn-search");
 //var ramon = document.querySelector(".js-results");
@@ -368,3 +374,4 @@ function getIssuesData() {
 }
 
 searchBtn.addEventListener('click', getIssuesData);
+inputProject.addEventListener("keypress", onKeyPress);
