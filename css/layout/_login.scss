@@ -4,4 +4,8 @@
   background-image: url(../img/login-background.jpg);
   background-size: cover;
   background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }

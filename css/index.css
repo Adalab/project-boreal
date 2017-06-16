@@ -11,7 +11,37 @@ body {
   height: 100vh;
   background-image: url(../img/login-background.jpg);
   background-size: cover;
-  background-position: center; }
+  background-position: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column; }
+
+.login-form {
+  width: 35%; }
+
+.login-slug {
+  width: 75%;
+  padding: 1em;
+  border-radius: 1em;
+  border: 0;
+  margin: 0.3em; }
+
+.login-btn {
+  width: 15%;
+  padding: 1em;
+  border-radius: 1em;
+  border: 0;
+  margin: 0.3em; }
 
 .hidden {
   display: none; }

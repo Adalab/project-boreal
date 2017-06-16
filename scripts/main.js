@@ -2,6 +2,14 @@
 
 /* global Chart */
 
+function showCharts() {
+  var loginScreen = document.querySelector('.login-container');
+  var chartsScreen = document.querySelector('.charts-container')
+
+  loginScreen.classList.toggle('hidden');
+  chartsScreen.classList.toggle('hidden');
+}
+
 var inputProject = document.querySelector(".js-input-slug");
 var searchBtn = document.querySelector(".js-btn-search");
 //var ramon = document.querySelector(".js-results");
@@ -288,6 +296,7 @@ function printUserAndUnassigned(userWithMostIssues, notAssignedCount) {
 
 // Main function
 function getIssuesData() {
+  showCharts();
   //Access API to get ID of the project by slug
   var requestProjectId = new XMLHttpRequest();
   var slugName = inputProject.value;
