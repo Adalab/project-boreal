@@ -127,11 +127,11 @@ function printSeveritiesChart(severityCount) {
         ],
         backgroundColor: [
 
-          '#BD513F',
-          '#3C715A',
-          '#52BD8F',
-          '#fabada',
-          'aliceblue'
+          '#5A231F',
+          '#A75F5A',
+          '#31704B',
+          '#5AA77A',
+          '#9CF3C0'
         ],
         borderColor:[
           "white"
@@ -173,7 +173,7 @@ function getOpenClosedData(dataIssues) {
   );
   return [openIssues, closedIssues];
 }
-//Pintar gráfica open closed
+
 
 function printOpenClosedChart(openClosedCount) {
   var readyForTest = openClosedCount[0].readyForTest;
@@ -185,7 +185,6 @@ function printOpenClosedChart(openClosedCount) {
   console.log("closedIssues: " + closedIssues + " readyForTest: " + readyForTest);
 
 
-  //var dataPack1 = [openClosedCount.openIssues.readyForTest, openClosedCount.closedIssues];
   var dataPack1 = [readyForTest, closedIssues];
   var dataPack2 = [newIssue];
   var dataPack3 = [inProgress];
@@ -200,24 +199,24 @@ function printOpenClosedChart(openClosedCount) {
     data: {
       labels: openClosedLabels,
       datasets:[{
-        label: 'Ready for test',
+        label: 'Closed',
         data: dataPack1,
-        backgroundColor: 'blue'
+        backgroundColor: '#5F3869'
       },
       {
         label: 'New',
         data: dataPack2,
-        backgroundColor: 'green'
+        backgroundColor: '#589E82'
       },
       {
         label: 'In progress',
         data: dataPack3,
-        backgroundColor: 'tomato'
+        backgroundColor: '#71D493'
       },
       {
         label: 'Needs info',
         data: dataPack4,
-        backgroundColor: 'yellow'
+        backgroundColor: '#9DE3BE'
       }
   ]
     },

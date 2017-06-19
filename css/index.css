@@ -57,8 +57,11 @@ main {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: 40%;
+  width: 33%;
   padding-right: 1.5em; }
+
+.timeline {
+  width: 33%; }
 
 .timeline-item {
   display: -webkit-box;
