@@ -106,7 +106,6 @@ function getSeverityData(dataIssues){
   return severityCount;
 }
 
-//(Pintar gráfico)
 function printSeveritiesChart(severityCount) {
 
   var ctxSeverity = document.getElementById("js-severityChart");
@@ -166,7 +165,7 @@ function getOpenClosedData(dataIssues) {
   }
   console.log(
     "Closed issues: " + closedIssues,
-    "listos para test: " + openIssues.readyForTest,
+    "Ready for test: " + openIssues.readyForTest,
     "New :" + openIssues.new,
     "in progress Issues: " + openIssues.inProgress,
     "needs info issues. " + openIssues.needsInfo
@@ -189,7 +188,7 @@ function printOpenClosedChart(openClosedCount) {
   var dataPack2 = [newIssue];
   var dataPack3 = [inProgress];
   var dataPack4 = [needsInfo];
-  var openClosedLabels = ["abiertos", "cerrados"];
+  var openClosedLabels = ["Open", "Closed"];
 
   // Chart.defaults.global.elements.rectangle.backgroundColor = '#FF0000';
 
@@ -257,9 +256,9 @@ function getTimelineData(dataTimeline) {
         timeLineItems.photo = "img/user.png";
       }
       if (timeLineItems.type === "issues.issue.change") {
-        timeLineItems.type = "cambiado";
+        timeLineItems.type = "changed";
       }else {
-        timeLineItems.type = "creado";
+        timeLineItems.type = "created";
       }
       lastTimelineItems.push(timeLineItems);
     }
@@ -272,7 +271,7 @@ function printTimeline(lastTimelineItems) {
   for (var i = 0; i < lastTimelineItems.length; i++) {
     var time=new Date(lastTimelineItems[i].created).toLocaleString();
     timelineContainer.innerHTML +=
-    "<div class='timeline-item'> <div class='flex-photo-text'><div class='timeline-user-photo  padding-photo'><img src='" + lastTimelineItems[i].photo + "'></div><div class='timeline-text'> <span>"+ lastTimelineItems[i].userName + "</span> ha " + lastTimelineItems[i].type + " el issue <span>" + lastTimelineItems[i].subject + "<span> </div></div><div class='timeline-date'>" + time + " </div></div>";
+    "<div class='timeline-item'> <div class='flex-photo-text'><div class='timeline-user-photo  padding-photo'><img src='" + lastTimelineItems[i].photo + "'></div><div class='timeline-text'> <span>"+ lastTimelineItems[i].userName + "</span> " + lastTimelineItems[i].type + " the issue <span>" + lastTimelineItems[i].subject + "<span> </div></div><div class='timeline-date'>" + time + " </div></div>";
   }
 }
 
@@ -293,7 +292,7 @@ function getUserWithMostIssues(dataIssues) {
 
 function printUserAndUnassigned(userWithMostIssues, notAssignedCount) {
   var topUserUnassigned = document.querySelector('.topUserUnassigned-container');
-  topUserUnassigned.innerHTML= "<div class='top-user  flex-photo-text'><div class='top-user-photo padding-photo'><img src='img/planta-ramon.png'></div><div class='top-user-text'><span>"+ userWithMostIssues.name +"</span> tiene <span>"+ userWithMostIssues.count + "</span> issues asignados, que alguien le dé un abrazo :( </div></div> <div class='unassigned  flex-photo-text'><div class='unassigned-text'>Apadrina un issue, hay <span>" + notAssignedCount + " issues no asignados</span></div><div class='unassigned-photo'><img src='img/box.png'></div></div>";
+  topUserUnassigned.innerHTML= "<div class='top-user  flex-photo-text'><div class='top-user-photo padding-photo'><img src='img/planta-ramon.png'></div><div class='top-user-text'><span>"+ userWithMostIssues.name +"</span> has <span>"+ userWithMostIssues.count + "</span> issues assigned, someone please hug " + userWithMostIssues.name + "!</div></div> <div class='unassigned  flex-photo-text'><div class='unassigned-text'>Sponsor an issue in need, there are <span>" + notAssignedCount + " unassigned issues</span></div><div class='unassigned-photo'><img src='img/box.png'></div></div>";
 }
 
 
