@@ -17,8 +17,16 @@ h1 {
   font-size: 4em;
   line-height: 0.3em; }
 
+.timeline-text, .topUserUnassigned-container {
+  font-weight: 100;
+  color: #636060; }
+
 .timeline-date {
+  font-weight: 100;
   font-size: 0.8em; }
+
+span {
+  font-weight: 300; }
 
 .login-container {
   width: 100vw;

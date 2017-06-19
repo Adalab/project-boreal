@@ -10,6 +10,16 @@ h1 {
   font-size: 4em;
   line-height: 0.3em;
 }
+
+.timeline-text, .topUserUnassigned-container{
+  font-weight: $fontLightWeight;
+  color: #636060;
+}
 .timeline-date{
+  font-weight: $fontLightWeight;
   font-size: 0.8em;
+}
+
+span {
+  font-weight: 300;
 }
