@@ -4,21 +4,21 @@
 
 function showCharts() {
   var loginScreen = document.querySelector('.login-container');
-  var chartsScreen = document.querySelector('.charts-container')
+  var chartsScreen = document.querySelector('.data-container');
 
-  loginScreen.classList.toggle('hidden');
-  chartsScreen.classList.toggle('hidden');
+  loginScreen.classList.add('hidden');
+  chartsScreen.classList.remove('hidden');
 }
 
 function onKeyPress(event) {
-  if (event.charCode === 13) {
-    getIssuesData()
+  var ENTER_KEY = 13;
+  if (event.charCode === ENTER_KEY) {
+    getIssuesData();
   }
 }
 
 var inputProject = document.querySelector(".js-input-slug");
 var searchBtn = document.querySelector(".js-btn-search");
-//var ramon = document.querySelector(".js-results");
 
 function getPriorityData(dataIssues) {
   var prioritiesCount = {
@@ -273,7 +273,7 @@ function printTimeline(lastTimelineItems) {
   for (var i = 0; i < lastTimelineItems.length; i++) {
     var time=new Date(lastTimelineItems[i].created).toLocaleString();
     timelineContainer.innerHTML +=
-    "<div class='timeline-item'> <div class='timeline-user-photo'><img src='" + lastTimelineItems[i].photo + "'></div><div class='timeline-text'>"+ lastTimelineItems[i].userName + " ha " + lastTimelineItems[i].type + " el issue " + lastTimelineItems[i].subject + " </div><div class='timeline-date'>" + time + " </div></div>";
+    "<div class='timeline-item'> <div class='tl-photo-text-wrapper'><div class='timeline-user-photo'><img src='" + lastTimelineItems[i].photo + "'></div><div class='timeline-text'>"+ lastTimelineItems[i].userName + " ha " + lastTimelineItems[i].type + " el issue " + lastTimelineItems[i].subject + " </div></div><div class='timeline-date'>" + time + " </div></div>";
   }
 }
 
