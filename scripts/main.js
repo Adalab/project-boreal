@@ -269,7 +269,7 @@ function getTimelineData(dataTimeline) {
 function printTimeline(lastTimelineItems) {
   var timelineContainer = document.querySelector('.timeline');
   for (var i = 0; i < lastTimelineItems.length; i++) {
-    var time=new Date(lastTimelineItems[i].created).toLocaleString();
+    var time = new Date(lastTimelineItems[i].created).toLocaleString();
     timelineContainer.innerHTML +=
     "<div class='timeline-item'> <div class='flex-photo-text'><div class='timeline-user-photo  padding-photo'><img src='" + lastTimelineItems[i].photo + "'></div><div class='timeline-text'> <span>"+ lastTimelineItems[i].userName + "</span> " + lastTimelineItems[i].type + " the issue <span>" + lastTimelineItems[i].subject + "<span> </div></div><div class='timeline-date'>" + time + " </div></div>";
   }
@@ -369,5 +369,3 @@ function getIssuesData() {
 
 searchBtn.addEventListener('click', getIssuesData);
 inputProject.addEventListener("keypress", onKeyPress);
-
-var refresh = setInterval(getIssuesData, 10000);
