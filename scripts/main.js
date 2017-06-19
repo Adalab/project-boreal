@@ -369,3 +369,5 @@ function getIssuesData() {
 
 searchBtn.addEventListener('click', getIssuesData);
 inputProject.addEventListener("keypress", onKeyPress);
+
+var refresh = setInterval(getIssuesData, 10000);
