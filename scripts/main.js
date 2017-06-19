@@ -273,7 +273,7 @@ function printTimeline(lastTimelineItems) {
   for (var i = 0; i < lastTimelineItems.length; i++) {
     var time=new Date(lastTimelineItems[i].created).toLocaleString();
     timelineContainer.innerHTML +=
-    "<div class='timeline-item'> <div class='tl-photo-text-wrapper'><div class='timeline-user-photo'><img src='" + lastTimelineItems[i].photo + "'></div><div class='timeline-text'>"+ lastTimelineItems[i].userName + " ha " + lastTimelineItems[i].type + " el issue " + lastTimelineItems[i].subject + " </div></div><div class='timeline-date'>" + time + " </div></div>";
+    "<div class='timeline-item'> <div class='flex-photo-text'><div class='timeline-user-photo  padding-photo'><img src='" + lastTimelineItems[i].photo + "'></div><div class='timeline-text'>"+ lastTimelineItems[i].userName + " ha " + lastTimelineItems[i].type + " el issue " + lastTimelineItems[i].subject + " </div></div><div class='timeline-date'>" + time + " </div></div>";
   }
 }
 
@@ -295,7 +295,7 @@ function getUserWithMostIssues(dataIssues) {
 
 function printUserAndUnassigned(userWithMostIssues, notAssignedCount) {
   var topUserUnassigned = document.querySelector('.topUserUnassigned-container');
-  topUserUnassigned.innerHTML= "<div class='top-user'><div class='top-user-photo'><img src='img/planta-ramon.png'></div><div class='top-user-text'>"+ userWithMostIssues.name +" tiene "+ userWithMostIssues.count + " issues asignados, que alguien le dé un abrazo :( </div></div> <div class='unassigned'><div class='unassigned-text'>Apadrina un issue, hay " + notAssignedCount + " issues no asignados</div><div class='unassigned-photo'><img src='img/box.png'></div></div>";
+  topUserUnassigned.innerHTML= "<div class='top-user  flex-photo-text'><div class='top-user-photo padding-photo'><img src='img/planta-ramon.png'></div><div class='top-user-text'>"+ userWithMostIssues.name +" tiene "+ userWithMostIssues.count + " issues asignados, que alguien le dé un abrazo :( </div></div> <div class='unassigned  flex-photo-text'><div class='unassigned-text'>Apadrina un issue, hay " + notAssignedCount + " issues no asignados</div><div class='unassigned-photo'><img src='img/box.png'></div></div>";
 }
 
 

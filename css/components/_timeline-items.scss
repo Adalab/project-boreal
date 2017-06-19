@@ -1,11 +1,18 @@
-.tl-photo-text-wrapper{
-  display: flex;
-  align-items: center;
-  margin-bottom: 0.5em;
+
+.timeline-item{
+  background-color: aliceblue;
+  border-radius: 1em;
+  padding: 1em;
 }
 .timeline-user-photo{
-  width:10%;
+  width: 3em;
   img{
      width: 100%;
   }
+}
+.timeline-text{
+  width: 90%;
+}
+.timeline-date{
+  align-self: flex-end;
 }
