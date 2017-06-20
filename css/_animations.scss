@@ -1,0 +1,23 @@
+
+.data-container {
+  align-items: center;
+  background-image: linear-gradient(to right, white, $lightgrey,$purple,$lightpurple,$bluishgreen,$mint,white);
+  background-size: 600%;
+  background-position: 0 0;
+  height: 100vh;
+  /* Animation */
+  animation-timing-function: ease-in-out;
+  animation-duration: 10s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-name: gradients;
+}
+
+@keyframes gradients {
+    0%  {background-position: 0 0;}
+    25% {background-position: 50% 0;}
+    50% {background-position: 90% 0;}
+    60% {background-position: 60%;}
+    75% {background-position: 40%;}
+    100%{background-position: 0 0;}
+}

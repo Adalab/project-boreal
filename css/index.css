@@ -118,6 +118,54 @@ main {
   -ms-flex-item-align: end;
       align-self: flex-end; }
 
+.data-container {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-image: -webkit-gradient(linear, left top, right top, from(white), color-stop(#fafafa), color-stop(#5f3869), color-stop(#704468), color-stop(#589e82), color-stop(#71d493), to(white));
+  background-image: linear-gradient(to right, white, #fafafa, #5f3869, #704468, #589e82, #71d493, white);
+  background-size: 600%;
+  background-position: 0 0;
+  height: 100vh;
+  /* Animation */
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+  -webkit-animation-duration: 10s;
+          animation-duration: 10s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-name: gradients;
+          animation-name: gradients; }
+
+@-webkit-keyframes gradients {
+  0% {
+    background-position: 0 0; }
+  25% {
+    background-position: 50% 0; }
+  50% {
+    background-position: 90% 0; }
+  60% {
+    background-position: 60%; }
+  75% {
+    background-position: 40%; }
+  100% {
+    background-position: 0 0; } }
+
+@keyframes gradients {
+  0% {
+    background-position: 0 0; }
+  25% {
+    background-position: 50% 0; }
+  50% {
+    background-position: 90% 0; }
+  60% {
+    background-position: 60%; }
+  75% {
+    background-position: 40%; }
+  100% {
+    background-position: 0 0; } }
 .hidden {
   display: none; }
 
