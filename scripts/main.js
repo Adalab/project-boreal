@@ -268,6 +268,7 @@ function getTimelineData(dataTimeline) {
 
 function printTimeline(lastTimelineItems) {
   var timelineContainer = document.querySelector('.timeline');
+  timelineContainer.innerHTML="";
   for (var i = 0; i < lastTimelineItems.length; i++) {
     var time = new Date(lastTimelineItems[i].created).toLocaleString();
     timelineContainer.innerHTML +=
