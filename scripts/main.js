@@ -315,6 +315,8 @@ function getIssuesData() {
       var projectId = dataProject.id;
       var urlApiIssues = "https://api.taiga.io/api/v1/projects/" + projectId + "/issues_stats";
       console.log("URL API issues: " + urlApiIssues);
+
+      setInterval(function (){
       var requestProjectIssues = new XMLHttpRequest();
       requestProjectIssues.open('GET', urlApiIssues, true);
       requestProjectIssues.onload = function() {
@@ -330,34 +332,33 @@ function getIssuesData() {
           var notAssignedCount = getNotAssignedData(dataIssues);
           var userWithMostIssues = getUserWithMostIssues(dataIssues);
           printUserAndUnassigned(userWithMostIssues, notAssignedCount);
-
         } else {
 
         }
       };
       requestProjectIssues.onerror = function() {
       };
-      requestProjectIssues.send();
+      requestProjectIssues.send(); }, 10000);
 
-      var urlApiTimeline = "https://api.taiga.io/api/v1/timeline/project/" + projectId;
-      var requestProjectTimeline = new XMLHttpRequest();
-      requestProjectTimeline.open('GET', urlApiTimeline, true);
-      requestProjectTimeline.onload = function() {
-        if (requestProjectTimeline.status >= 200 && requestProjectTimeline.status < 400) {
-          var dataTimeline = JSON.parse(requestProjectTimeline.responseText);
+setInterval(function (){
+  var urlApiTimeline = "https://api.taiga.io/api/v1/timeline/project/" + projectId;
+  var requestProjectTimeline = new XMLHttpRequest();
+  requestProjectTimeline.open('GET', urlApiTimeline, true);
+  requestProjectTimeline.onload = function() {
+    if (requestProjectTimeline.status >= 200 && requestProjectTimeline.status < 400) {
+      var dataTimeline = JSON.parse(requestProjectTimeline.responseText);
+      var issuesTimeLine = getTimelineData(dataTimeline);
+      printTimeline(issuesTimeLine);
+      console.log(issuesTimeLine);
+      console.log("URL timeline: " + urlApiTimeline);
+    }
+    else {
+    }
+  };
+  requestProjectTimeline.onerror = function() {
+  };
+  requestProjectTimeline.send();}, 10000);
 
-          var issuesTimeLine = getTimelineData(dataTimeline);
-          printTimeline(issuesTimeLine);
-          console.log(issuesTimeLine);
-          console.log("URL timeline: " + urlApiTimeline);
-        }
-        else {
-
-        }
-      };
-      requestProjectTimeline.onerror = function() {
-      };
-      requestProjectTimeline.send();
     } else {
 
     }
