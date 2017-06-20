@@ -148,9 +148,12 @@ function getOpenClosedData(dataIssues) {
     readyForTest: 0,
     new: 0,
     inProgress: 0,
-    needsInfo: 0
+    needsInfo: 0,
+    totalOpen: 0
   };
+
   closedIssues = dataIssues.closed_issues;
+  openIssues.totalOpen = dataIssues.opened_issues;
   for (var key in dataIssues.issues_per_status) {
     var statusData = dataIssues.issues_per_status[key];
     if (statusData.name === "Ready for test") {
@@ -180,8 +183,18 @@ function printOpenClosedChart(openClosedCount) {
   var inProgress = openClosedCount[0].inProgress;
   var needsInfo = openClosedCount[0].needsInfo;
   var closedIssues = openClosedCount[1];
+  var totalOpen = openClosedCount[0].totalOpen;
+
+  var readyForTestPercent = ((readyForTest * 100)/totalOpen).toFixed(2);
+  var newIssuePercent = ((newIssue * 100)/totalOpen).toFixed(2);
+  var inProgressPercent = ((inProgress * 100)/totalOpen).toFixed(2);
+  var needsInfoPercent = ((needsInfo * 100)/totalOpen).toFixed(2);
+
 
   console.log("closedIssues: " + closedIssues + " readyForTest: " + readyForTest);
+  console.log("porcentaje readyForTest " + readyForTestPercent,
+  " porcentaje new " + newIssuePercent, " porcentaje inProgress " + inProgressPercent,
+  " porcentaje needsInfo " + needsInfoPercent);
 
 
   var dataPack1 = [readyForTest, closedIssues];
@@ -230,6 +243,17 @@ function printOpenClosedChart(openClosedCount) {
       }
     }
   });
+  var printReadyForTest = document.querySelector("#js-readyForTest");
+  printReadyForTest.innerHTML = readyForTestPercent + "%";
+
+  var printNewIssues = document.querySelector("#js-newIssues");
+  printNewIssues.innerHTML = newIssuePercent + "%";
+
+  var printInProgress = document.querySelector("#js-inProgress");
+  printInProgress.innerHTML = inProgressPercent + "%";
+
+  var printNeedsInfo = document.querySelector("#js-needsInfo");
+  printNeedsInfo.innerHTML = needsInfoPercent + "%";
 }
 
 
