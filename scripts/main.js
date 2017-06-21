@@ -197,49 +197,41 @@ function printOpenClosedChart(openClosedCount) {
   " porcentaje needsInfo " + needsInfoPercent);
 
 
-  var dataPack1 = [readyForTest, closedIssues];
-  var dataPack2 = [newIssue];
-  var dataPack3 = [inProgress];
-  var dataPack4 = [needsInfo];
+  var dataPack1 = [closedIssues, totalOpen];
+  //var dataPack2 = [totalOpen];
   var openClosedLabels = ["Open", "Closed"];
 
   // Chart.defaults.global.elements.rectangle.backgroundColor = '#FF0000';
 
   var ctxOpenClosed = document.getElementById('js-openClosedChart');
   var openClosedChart = new Chart(ctxOpenClosed, {
-    type: 'bar',
+    type: 'horizontalBar',
     data: {
-      labels: openClosedLabels,
-      datasets:[{
-        label: 'Closed',
-        data: dataPack1,
-        backgroundColor: '#5F3869'
-      },
-      {
-        label: 'New',
-        data: dataPack2,
-        backgroundColor: '#589E82'
-      },
-      {
-        label: 'In progress',
-        data: dataPack3,
-        backgroundColor: '#71D493'
-      },
-      {
-        label: 'Needs info',
-        data: dataPack4,
-        backgroundColor: '#9DE3BE'
-      }
-  ]
+      labels: ["Closed", "Open"],
+      datasets: [{
+        label: 'Number of issues',
+        data: [closedIssues, totalOpen],
+        backgroundColor: [
+          'rgba(66, 75, 137, 0.2)',
+          'rgba(54, 162, 235, 0.2)'
+        ],
+        borderColor: [
+          'rgba(255,99,132,1)',
+          'rgba(255, 159, 64, 1)'
+        ],
+        borderWidth: 1
+      }]
     },
     options: {
-      scales: {
-        xAxes: [{
-          stacked: true
-        }],
-        yAxes: [{
-          stacked: true
-        }]
+      legend: {
+        display: false,
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero:true
+            }
+          }]
+        }
       }
     }
   });
@@ -248,8 +240,7 @@ function printOpenClosedChart(openClosedCount) {
 }
 
 
-function getNotAssignedData(dataIssues) {
-  var notAssignedIssues = 0;
+function getNotAssignedData(dataIssues) {  var notAssignedIssues = 0;
   notAssignedIssues = dataIssues.issues_per_assigned_to["0"].count;
   console.log("Issues not assigned :" + notAssignedIssues);
   return notAssignedIssues;
