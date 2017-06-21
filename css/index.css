@@ -17,7 +17,7 @@ h1 {
   font-size: 4em;
   line-height: 0.3em; }
 
-.timeline-text, .topUserUnassigned-container {
+.timeline-text, .topUserUnassigned-container, .status-table-container {
   font-weight: 100;
   color: #636060; }
 
@@ -66,6 +66,7 @@ main {
       -ms-flex-direction: column;
           flex-direction: column;
   width: 33%;
+  height: 100%;
   padding-right: 1.5em; }
 
 .timeline {
@@ -83,6 +84,25 @@ main {
 
 .open-closed-chart {
   height: 33vh; }
+
+.status-table-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-item-align: center;
+      align-self: center; }
+
+.status-table {
+  background-color: aliceblue;
+  border-radius: 1em;
+  padding: 1em; }
+
+th {
+  padding: 0.5em; }
+
+td {
+  padding-right: 0.5em;
+  padding-bottom: 0.5em; }
 
 .login-form {
   width: 35%; }
@@ -171,6 +191,11 @@ main {
 
 .center {
   text-align: center; }
+
+.space-between {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between; }
 
 .flex-photo-text {
   display: -webkit-box;

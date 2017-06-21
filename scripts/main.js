@@ -212,14 +212,9 @@ function printOpenClosedChart(openClosedCount) {
         label: 'Number of issues',
         data: [closedIssues, totalOpen],
         backgroundColor: [
-          'rgba(66, 75, 137, 0.2)',
-          'rgba(54, 162, 235, 0.2)'
+          '#5F3869',
+          '#9DE3BE'
         ],
-        borderColor: [
-          'rgba(255,99,132,1)',
-          'rgba(255, 159, 64, 1)'
-        ],
-        borderWidth: 1
       }]
     },
     options: {
@@ -236,7 +231,7 @@ function printOpenClosedChart(openClosedCount) {
     }
   });
   var printTable = document.querySelector("#js-openIssuesPerStatus");
-  printTable.innerHTML = '<table><tr><td>Ready for test</td><td>' + readyForTestPercent + ' %</td></tr><tr><td>New</td><td>' + newIssuePercent + ' %</td></tr><tr><td>In Progress</td><td> ' + inProgressPercent + ' %</td></tr><tr><td>Needs info</td><td> ' + needsInfoPercent + ' %</td></tr></table>';
+  printTable.innerHTML = '<table class="status-table"><tr><th>Open status</th><th> % </th></tr><tr><td>Ready for test</td><td>' + readyForTestPercent + ' %</td></tr><tr><td>New</td><td>' + newIssuePercent + ' %</td></tr><tr><td>In Progress</td><td> ' + inProgressPercent + ' %</td></tr><tr><td>Needs info</td><td> ' + needsInfoPercent + ' %</td></tr></table>';
 }
 
 
