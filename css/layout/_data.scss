@@ -7,6 +7,7 @@ main{
 .column1-3{
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   width: 33%;
   height: 100%;
   padding-right: 1.5em;

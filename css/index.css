@@ -65,6 +65,9 @@ main {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   width: 33%;
   height: 100%;
   padding-right: 1.5em; }
@@ -103,6 +106,10 @@ th {
 td {
   padding-right: 0.5em;
   padding-bottom: 0.5em; }
+
+.pie-chart {
+  min-height: 40vh;
+  max-height: 40vh; }
 
 .login-form {
   width: 35%; }
@@ -191,11 +198,6 @@ td {
 
 .center {
   text-align: center; }
-
-.space-between {
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between; }
 
 .flex-photo-text {
   display: -webkit-box;
