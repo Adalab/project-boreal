@@ -231,7 +231,7 @@ function printOpenClosedChart(openClosedCount) {
     }
   });
   var printTable = document.querySelector("#js-openIssuesPerStatus");
-  printTable.innerHTML = '<table class="status-table"><tr><th>Open status</th><th> % </th></tr><tr><td>Ready for test</td><td>' + readyForTestPercent + ' %</td></tr><tr><td>New</td><td>' + newIssuePercent + ' %</td></tr><tr><td>In Progress</td><td> ' + inProgressPercent + ' %</td></tr><tr><td>Needs info</td><td> ' + needsInfoPercent + ' %</td></tr></table>';
+  printTable.innerHTML = '<table class="status-table"><tr><th>Open status</th><th> % </th></tr><tr><td>New</td><td>' + newIssuePercent + ' %</td></tr><tr><td>In Progress</td><td> ' + inProgressPercent + ' %</td></tr><tr><td>Needs info</td><td> ' + needsInfoPercent + ' %</td></tr></table>';
 }
 
 
