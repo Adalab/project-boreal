@@ -127,7 +127,8 @@ td {
   padding: 1em;
   border-radius: 1em;
   border: 0;
-  margin: 0.3em; }
+  margin: 0.3em;
+  background-color: #9de3be; }
 
 .loading-screen {
   margin-top: 40vh; }
@@ -197,6 +198,10 @@ td {
     background-position: 40%; }
   100% {
     background-position: 0 0; } }
+.login-btn:hover {
+  background-color: aliceblue;
+  cursor: pointer; }
+
 .hidden {
   display: none; }
 
