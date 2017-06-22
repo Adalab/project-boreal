@@ -1,7 +1,7 @@
 
 
 # Boreal
-Boreal is an issues monitor for [Taiga](https://taiga.io/) , an Agile gestor created by [Kaleidos](http://kaleidos.net/).
+[Boreal](https://adalab.github.io/Boreal/) is an issues monitor for [Taiga](https://taiga.io/) , an Agile gestor created by [Kaleidos](http://kaleidos.net/).
 ## But,what it is for?
 With Boreal you can
   + Follow the last five created/changed issues of your project.
