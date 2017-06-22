@@ -304,6 +304,7 @@ function getIssuesData() {
   //Access API to get ID of the project by slug
   var requestProjectId = new XMLHttpRequest();
   var slugName = inputProject.value;
+  slugName = slugName.toLowerCase();
   var urlApiProject = "https://api.taiga.io/api/v1/projects/by_slug?slug=";
   urlApiProject = urlApiProject + slugName;
 
