@@ -9,3 +9,14 @@ With Boreal you can
   + Visualize charts of your issues by priority and severity.
   + The user with most issues assigned over time  on your project.
   + The number of issues unassigned.
+## How it works?
+  Easy! you just have to put the slug of your project on the search input and the magic happens!
+  ### Ehmm... slug?!
+  The **slug** of your project appears on the URL.
+  For example for our Taiga project the URL would be: https://tree.taiga.io/project/altheae-taigaadalab/.
+  #### Copy the similar text in bold from your URL and paste it on the login page!
+  tree.taiga.io/project/**altheae-taigaadalab**
+ 
+  
+  
+  
