@@ -295,7 +295,7 @@ function getUserWithMostIssues(dataIssues) {
 
 function printUserAndUnassigned(userWithMostIssues, notAssignedCount) {
   var topUserUnassigned = document.querySelector('.topUserUnassigned-container');
-  topUserUnassigned.innerHTML= "<div class='top-user  flex-photo-text'><div class='top-user-photo padding-photo'><img src='img/cookie_jar.png'></div><div class='top-user-text'><span>"+ userWithMostIssues.name +"</span> has <span>"+ userWithMostIssues.count + "</span> issues assigned. Congratulations! someone give " + userWithMostIssues.name + " a cookie! </div></div> <div class='unassigned  flex-photo-text'><div class='unassigned-text'>Sponsor an issue in need, there are <span>" + notAssignedCount + " unassigned issues</span></div><div class='unassigned-photo'><img src='img/box.png'></div></div>";
+  topUserUnassigned.innerHTML= "<div class='top-user  flex-photo-text'><div class='top-user-photo padding-photo'><img src='img/cookie_jar.png'></div><div class='top-user-text'>Over time, <span>"+ userWithMostIssues.name +"</span> has been assigned <span>"+ userWithMostIssues.count + "</span> issues. Congratulations! someone give " + userWithMostIssues.name + " a cookie! </div></div> <div class='unassigned  flex-photo-text'><div class='unassigned-text'>Sponsor an issue in need, there are <span>" + notAssignedCount + " unassigned issues</span></div><div class='unassigned-photo'><img src='img/box.png'></div></div>";
 }
 
 
