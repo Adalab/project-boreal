@@ -39,11 +39,6 @@ function getPriorityData(dataIssues) {
     }
 
   }
-  console.log(
-    "Low priorities: " + prioritiesCount.low,
-    " Normal priorities: " + prioritiesCount.normal,
-    " High priorities: " + prioritiesCount.high
-  );
 
   return prioritiesCount;
 }
@@ -97,13 +92,7 @@ function getSeverityData(dataIssues){
       severityCount.critical = severityData.count;
     }
   }
-  console.log(
-    "Wishlist: " + severityCount.wishlist,
-    "Minor: " + severityCount.minor,
-    "Normal: " + severityCount.normal,
-    "Important: " + severityCount.important,
-    "critical issues :" + severityCount.critical
-  );
+
   return severityCount;
 }
 
@@ -167,13 +156,7 @@ function getOpenClosedData(dataIssues) {
       openIssues.needsInfo = statusData.count;
     }
   }
-  console.log(
-    "Closed issues: " + closedIssues,
-    "Ready for test: " + openIssues.readyForTest,
-    "New :" + openIssues.new,
-    "in progress Issues: " + openIssues.inProgress,
-    "needs info issues. " + openIssues.needsInfo
-  );
+
   return [openIssues, closedIssues];
 }
 
@@ -192,10 +175,7 @@ function printOpenClosedChart(openClosedCount) {
   var needsInfoPercent = ((needsInfo * 100)/totalOpen).toFixed(2);
 
 
-  console.log("closedIssues: " + closedIssues + " readyForTest: " + readyForTest);
-  console.log("porcentaje readyForTest " + readyForTestPercent,
-  " porcentaje new " + newIssuePercent, " porcentaje inProgress " + inProgressPercent,
-  " porcentaje needsInfo " + needsInfoPercent);
+
 
 
   var dataPack1 = [closedIssues, totalOpen];
@@ -238,12 +218,10 @@ function printOpenClosedChart(openClosedCount) {
 
 function getNotAssignedData(dataIssues) {  var notAssignedIssues = 0;
   notAssignedIssues = dataIssues.issues_per_assigned_to["0"].count;
-  console.log("Issues not assigned :" + notAssignedIssues);
   return notAssignedIssues;
 }
 
 function getTimelineData(dataTimeline) {
-  console.log(dataTimeline);
   var lastTimelineItems = [];
   for (var i = 0; lastTimelineItems.length < 5 && i < dataTimeline.length; i++) {
     if(dataTimeline[i].event_type === "issues.issue.change" || dataTimeline[i].event_type === "issues.issue.create"){
@@ -289,7 +267,6 @@ function getUserWithMostIssues(dataIssues) {
       topUser.name = dataIssues.issues_per_assigned_to[key].name;
     }
   }
-  console.log("El nuevo Ramón es: " + topUser.name + " con " + topUser.count + " issues");
   return topUser;
 }
 
@@ -318,7 +295,7 @@ function getIssuesData() {
       var dataProject = JSON.parse(requestProjectId.responseText);
       var projectId = dataProject.id;
       var urlApiIssues = "https://api.taiga.io/api/v1/projects/" + projectId + "/issues_stats";
-      console.log("URL API issues: " + urlApiIssues);
+
 
       setInterval(function (){
 
@@ -356,8 +333,6 @@ setInterval(function (){
       var dataTimeline = JSON.parse(requestProjectTimeline.responseText);
       var issuesTimeLine = getTimelineData(dataTimeline);
       printTimeline(issuesTimeLine);
-      console.log(issuesTimeLine);
-      console.log("URL timeline: " + urlApiTimeline);
     }
     else {
       chartsScreen.innerHTML = "There has been an error";
