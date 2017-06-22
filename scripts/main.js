@@ -1,10 +1,10 @@
 "use strict";
 
 /* global Chart */
+var chartsScreen = document.querySelector('.data-container');
 
 function showCharts() {
   var loginScreen = document.querySelector('.login-container');
-  var chartsScreen = document.querySelector('.data-container');
 
   loginScreen.classList.add('hidden');
   chartsScreen.classList.remove('hidden');
@@ -336,10 +336,11 @@ function getIssuesData() {
           var userWithMostIssues = getUserWithMostIssues(dataIssues);
           printUserAndUnassigned(userWithMostIssues, notAssignedCount);
         } else {
-
+          chartsScreen.innerHTML = "There has been an error";
         }
       };
       requestProjectIssues.onerror = function() {
+        chartsScreen.innerHTML = "There has been an error";
       };
       requestProjectIssues.send(); }, 10000);
 
@@ -356,6 +357,7 @@ setInterval(function (){
       console.log("URL timeline: " + urlApiTimeline);
     }
     else {
+      chartsScreen.innerHTML = "There has been an error";
     }
   };
   requestProjectTimeline.onerror = function() {
@@ -363,11 +365,13 @@ setInterval(function (){
   requestProjectTimeline.send();}, 10000);
 
     } else {
-
+      chartsScreen.innerHTML = "There has been an error";
     }
   };
 
-  requestProjectId.onerror = function() {};
+  requestProjectId.onerror = function() {
+    chartsScreen.innerHTML = "There has been an error";
+  };
   requestProjectId.send();
 }
 
