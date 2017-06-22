@@ -2,6 +2,7 @@
 
 /* global Chart */
 var chartsScreen = document.querySelector('.data-container');
+var loadingScreen = document.querySelector('.loading-screen');
 
 function showCharts() {
   var loginScreen = document.querySelector('.login-container');
@@ -320,9 +321,11 @@ function getIssuesData() {
       console.log("URL API issues: " + urlApiIssues);
 
       setInterval(function (){
+
       var requestProjectIssues = new XMLHttpRequest();
       requestProjectIssues.open('GET', urlApiIssues, true);
       requestProjectIssues.onload = function() {
+        loadingScreen.classList.add('hidden');
         if (requestProjectIssues.status >= 200 && requestProjectIssues.status < 400) {
           var dataIssues = JSON.parse(requestProjectIssues.responseText);
 

@@ -70,7 +70,8 @@ main {
           justify-content: space-between;
   width: 33%;
   height: 100%;
-  padding-right: 1.5em; }
+  padding-right: 1.5em;
+  overflow: hidden; }
 
 .timeline {
   width: 33%; }
@@ -127,6 +128,9 @@ td {
   border-radius: 1em;
   border: 0;
   margin: 0.3em; }
+
+.loading-screen {
+  margin-top: 40vh; }
 
 .timeline-item {
   background-color: aliceblue;
