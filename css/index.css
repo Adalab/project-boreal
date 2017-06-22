@@ -131,7 +131,8 @@ td {
   background-color: #9de3be; }
 
 .loading-screen {
-  margin-top: 40vh; }
+  margin-top: 40vh;
+  margin-left: 20vh; }
 
 .timeline-item {
   background-color: aliceblue;
