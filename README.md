@@ -16,7 +16,8 @@ With Boreal you can
   For example for our Taiga project the URL would be: https://tree.taiga.io/project/altheae-taigaadalab/.
   #### Copy the similar text in bold from your URL and paste it on the login page!
   tree.taiga.io/project/**altheae-taigaadalab**
- 
+##### All content is open source
+##### You can find the background image in [Unsplash](https://unsplash.com/) and an unmodified version of the icons in [Flaticon](http://www.flaticon.com/)
   
   
   
