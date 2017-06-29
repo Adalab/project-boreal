@@ -18,6 +18,5 @@ With Boreal you can
   tree.taiga.io/project/**altheae-taigaadalab**
 ##### All content is open source
 ##### You can find the background image in [Unsplash](https://unsplash.com/) and an unmodified version of the icons in [Flaticon](http://www.flaticon.com/)
-  
-  
-  
+## Contributors
+  Althea Espejo, Blanca Sancho, Eva Millán, Laura Rodríguez
